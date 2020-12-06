@@ -36,20 +36,8 @@ const carRetalSchema = new mongoose.Schema({
     }
 })
 
-const CarRental = mongoose.model('car_rental', carRetalSchema)
+const CarRental = mongoose.model('car-rentals', carRetalSchema)
 //Exporting Module
-const rental = new CarRental({
-    name: 'riyaz',
-    mobile_no: '9500665156',
-    trip_type: 'round',
-    destination: 'parangipettai',
-    date: '11-11-2020',
-    time: '5:00 PM'
-    
-})
-rental.save().then(rental => {
-    console.log(rental)
-}).catch(e => {
-    console.log(e)
-})
-module.exports = CarRental
+module.exports = {
+    CarRental
+}

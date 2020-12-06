@@ -36,4 +36,6 @@ const dinningSchema = new mongoose.Schema({
 //defining Schema
 const Dinning = mongoose.model('dinning', dinningSchema )
 //Exporting model
-module.exports = Dinning
+module.exports = {
+    Dinning
+}

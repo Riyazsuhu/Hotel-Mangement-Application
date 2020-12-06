@@ -8,10 +8,6 @@ const roomSchema = new mongoose.Schema({
         trim: true,
         required: true,
     },
-    company_name: {
-        type: String,
-        trim: true
-    },
     email:{
         type: String,
         trim: true,
@@ -45,4 +41,4 @@ const roomSchema = new mongoose.Schema({
 //defining Schema
 const Room = mongoose.model('rooms', roomSchema )
 //Exporting model
-module.exports = Room
+module.exports = {Room}

@@ -41,4 +41,4 @@ const liveEventSchema = new mongoose.Schema({
 //defining Schema
 const LiveEvent = mongoose.model('live-event', liveEventSchema )
 //Exporting model
-module.exports = LiveEvent
+module.exports = {LiveEvent}

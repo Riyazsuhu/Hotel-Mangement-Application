@@ -45,4 +45,4 @@ const meetingRoomSchema = new mongoose.Schema({
 //defining Schema
 const MeetingRoom = mongoose.model('meeting-rooms', meetingRoomSchema )
 //Exporting model
-module.exports = MeetingRoom
+module.exports = {MeetingRoom}
