@@ -22,10 +22,12 @@
     "body-parser": "^1.19.0",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
+    "jest": "^26.6.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.4",
     "multer": "^1.4.2",
     "sharp": "^0.26.3",
+    "supertest": "^6.0.1",
     "validator": "^13.5.1"
   }
 }
