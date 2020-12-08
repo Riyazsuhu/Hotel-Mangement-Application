@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://riyaz:alhamdulillah@cluster0.j9vpm.mongodb.net/hotel-management-application', {
+mongoose.connect(process.env.MONGODB_URL , {
     useNewUrlParser:true,
     useCreateIndex:true,
-    useUnifiedTopology: true,
+    useUnifiedTopology:false,
     useFindAndModify:false
 })

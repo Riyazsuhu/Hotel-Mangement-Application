@@ -6,16 +6,21 @@ const servicesSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        lowercase: true
+        lowercase: true,
+        validate(value){
+            if(!value === 'car rental' || !value === 'room' || !value === 'meeting room' || !value === 'live event' || !value === 'dining'){
+                throw new Error('Invalid service type')
+            }
+        }
     },
     description: {
         type: String,
         required: true,
         trim: true
     },
-    images: [ {image: {
-        type: Buffer
-    }} ],
+    image: {
+        type: Buffer,
+    },
     price: {
         type: Number,
         required: true,
@@ -35,6 +40,15 @@ const servicesSchema = new mongoose.Schema({
         type: Number,
         required: true,
         trim: true
+    },
+    available: {
+        type: Boolean,
+        required: true
+    },
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'staffs'
     }
 })
 
