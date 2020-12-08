@@ -1,14 +1,12 @@
 require('../../db/mongoose')
-const { request } = require('express')
 const express = require('express')
 const router = new express.Router()
 const auth = require('../../middleware/auth')
 const Service  = require('../../models/staff/service')
-const multer = require('multer')
 const log = console.log
 //Restful service api
 router.post('/add', auth, async(req, res) => {
-    const service = new Service(req.body)
+    const service = new Service({...req.body, creator: req.staff._id})
     try{
         await service.save()
         log( 'Service added Successfully' )
@@ -37,7 +35,7 @@ router.patch('/update/:id',auth, async(req, res) => {
         return log('Invalid service ID')
     } 
     const updates=Object.keys(req.body)
-    const allowedUpdates=['service_type','description','image','price', 'discount', 'capacity', 'count']
+    const allowedUpdates=['service_type','description','image','price', 'discount', 'capacity', 'count', 'available']
     const isValidOperation= updates.every((update)=> allowedUpdates.includes(update))
     if(!isValidOperation){
         log('Invalid updation!')
@@ -57,15 +55,6 @@ router.delete('/delete/:id', auth, async(req, res) => {
         log('Invalid service ID')
         res.status(400).send()
     }
-})
-const upload = multer({limits:{
-    fileSize:1000000
-},fileFilter(req,file,cb){
-    if(!file.originalname.match(/\.(jpg|jpeg|png)$/)){
-        return cb(new Error('Invalid file format'))
-    }
-    cb(undefined,true)
-}
 })
 //export router
 module.exports = router 

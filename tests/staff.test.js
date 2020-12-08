@@ -1,18 +1,7 @@
 const request = require('supertest')
 const app = require('../src/app')
 const Staff = require('../src/models/staff/staff')
-const jwt = require('jsonwebtoken')
-const mongoose = require('mongoose')
-const _id = new mongoose.Types.ObjectId()
-demoStaff = {
-    _id,
-    name: 'suhail',
-    email: 'suhail1999@gmail.com',
-    password: '123456',
-    tokens:[{
-        token:jwt.sign({_id},process.env.JWT_SECRET)
-    }]
-}
+const { demoStaff } = require('./fixtures/db')
 beforeEach(async() => {
     await Staff.deleteMany()
     await new Staff(demoStaff).save()

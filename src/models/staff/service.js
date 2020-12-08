@@ -18,9 +18,6 @@ const servicesSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    image: {
-        type: Buffer,
-    },
     price: {
         type: Number,
         required: true,
@@ -50,6 +47,8 @@ const servicesSchema = new mongoose.Schema({
         required: true,
         ref: 'staffs'
     }
+},{
+    timestamps: true
 })
 
 const Service = mongoose.model('services', servicesSchema)
