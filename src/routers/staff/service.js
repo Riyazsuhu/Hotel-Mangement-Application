@@ -3,6 +3,8 @@ const express = require('express')
 const router = new express.Router()
 const auth = require('../../middleware/auth')
 const Service  = require('../../models/staff/service')
+const multer = require('multer')
+const sharp = require('sharp')
 const log = console.log
 //Restful service api
 router.post('/add', auth, async(req, res) => {
@@ -32,7 +34,8 @@ router.patch('/update/:id',auth, async(req, res) => {
     try{
         var service = await Service.findById(req.params.id)
     }catch(e){
-        return log('Invalid service ID')
+        log('Invalid service ID')
+        res.status(404).send()
     } 
     const updates=Object.keys(req.body)
     const allowedUpdates=['service_type','description','image','price', 'discount', 'capacity', 'count', 'available']

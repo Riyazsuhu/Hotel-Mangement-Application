@@ -33,6 +33,9 @@ const servicesSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    image: {
+        type: Buffer
+    },
     count: {
         type: Number,
         required: true,
@@ -46,11 +49,14 @@ const servicesSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'staffs'
-    }
+    },
+    booking:[{booked: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'rooms' || 'meeting-rooms'|| 'live-event' || 'dinning' || 'car-rentals'
+    }}]
 },{
     timestamps: true
 })
-
 const Service = mongoose.model('services', servicesSchema)
 //Exporting db Model
 module.exports = Service

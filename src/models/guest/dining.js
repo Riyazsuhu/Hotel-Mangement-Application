@@ -24,6 +24,14 @@ const dinningSchema = new mongoose.Schema({
         trim: true,
         required: true,
     },
+    count: {
+        type: Number,
+        default: 1
+    },
+    service_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
     date: {
         type: String,
         required: true,
@@ -31,7 +39,16 @@ const dinningSchema = new mongoose.Schema({
     time: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number,
+        default: 0
     }
+})
+dinningSchema.virtual('services',{
+    ref:'services',
+    localField:'_id',
+    foreignField:'booked'
 })
 //defining Schema
 const Dinning = mongoose.model('dinning', dinningSchema )

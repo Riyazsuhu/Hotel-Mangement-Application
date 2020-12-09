@@ -10,8 +10,7 @@ const liveEventSchema = new mongoose.Schema({
     },
     event_type: {
         type: String,
-        trim: true,
-        required: true,
+        trim: true
     },
     email:{
         type: String,
@@ -23,6 +22,14 @@ const liveEventSchema = new mongoose.Schema({
                 throw new Error('Invalid Email address!')
             }
         }
+    },
+    service_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    count: {
+        type: Number,
+        default: 1
     },
     mobile_no:{
         type: Number,
@@ -36,7 +43,16 @@ const liveEventSchema = new mongoose.Schema({
     end_date: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number,
+        default: 0
     }
+})
+liveEventSchema.virtual('services',{
+    ref:'services',
+    localField:'_id',
+    foreignField:'booked'
 })
 //defining Schema
 const LiveEvent = mongoose.model('live-event', liveEventSchema )

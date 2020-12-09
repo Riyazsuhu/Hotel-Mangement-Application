@@ -26,6 +26,14 @@ const carRetalSchema = new mongoose.Schema({
         trim: true,
         lowercase: true
     },
+    count: {
+        type: Number,
+        default: 1
+    },
+    service_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
     date: {
         type: String,
         required: true,
@@ -33,9 +41,17 @@ const carRetalSchema = new mongoose.Schema({
     time: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number,
+        default: 0
     }
 })
-
+carRetalSchema.virtual('services',{
+    ref:'services',
+    localField:'_id',
+    foreignField:'booked'
+})
 const CarRental = mongoose.model('car-rentals', carRetalSchema)
 //Exporting Module
 module.exports = {

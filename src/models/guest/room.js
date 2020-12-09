@@ -24,6 +24,14 @@ const roomSchema = new mongoose.Schema({
         trim: true,
         required: true,
     },
+    service_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true
+    },
+    count: {
+        type: Number,
+        default: 1
+    },
     start_date: {
         type: String,
         required: true,
@@ -32,11 +40,15 @@ const roomSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    room_count: {
+    rating: {
         type: Number,
-        default: 1,
-        trim: true
+        default: 0
     }
+})
+roomSchema.virtual('services',{
+    ref:'services',
+    localField:'_id',
+    foreignField:'booked'
 })
 //defining Schema
 const Room = mongoose.model('rooms', roomSchema )

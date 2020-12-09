@@ -18,6 +18,7 @@ const demoService = {
     discount: 20,
     capacity: 3,
     count: 5,
+    creator: _id,
     available: true
 }
 const demoService1 = {
@@ -28,6 +29,7 @@ const demoService1 = {
     discount: 30,
     capacity: 2,
     count: 5,
+    creator: _id,
     available: true
 }
 const demoService2 = {
@@ -38,6 +40,7 @@ const demoService2 = {
     discount: 10,
     capacity: 10,
     count: 3,
+    creator: _id,
     available: true
 }
 const demoService3 = {
@@ -48,6 +51,7 @@ const demoService3 = {
     discount: 15,
     capacity: 150,
     count: 2,
+    creator: _id,
     available: true
 }
 const demoService4 = {
@@ -58,7 +62,60 @@ const demoService4 = {
     discount: 5,
     capacity: 3,
     count: 10,
+    creator: _id,
     available: true
+}
+const demoDinnig = {
+    name: "Riyaz",
+    email: "name@gshd.com",
+    count: 2,
+    mobile_no: 9500665156,
+    service_id: demoService4._id,
+    date: "06-11-2020",
+    time: "05:00 PM"
+}
+const demoCarrental = {
+    name: "Riyaz",
+    count: 2,
+    emergency_no: 9549549459,
+    trip_type: 'round',
+    destination: 'chennai',
+    mobile_no: 9500665156,
+    service_id: demoService4._id,
+    date: "06-11-2020",
+    time: "05:00 PM"
+}
+const demoLiveevent = {
+    name: "Riyaz",
+    event_type: 'marriage',
+    email: "name@gshd.com",
+    count: 1,
+    mobile_no: 9500665156,
+    service_id: demoService4._id,
+    start_date: "06-11-2020",
+    end_date: "06-11-2020"
+}
+const demoMeetingroom = {
+    name: "Riyaz",
+    company_name: 'abc pvt.ltd',
+    email: "name@gshd.com",
+    count: 1,
+    mobile_no: 9500665156,
+    service_id: demoService4._id,
+    start_date: "06-11-2020",
+    end_date: "06-11-2020"
+}
+const demoRoom = {
+    name: "Riyaz",
+    email: "name@gshd.com",
+    count: 1,
+    mobile_no: 9500665156,
+    service_id: demoService4._id,
+    start_date: "06-11-2020",
+    end_date: "06-11-2020"
+}
+const rating = {
+    rating : 4
 }
 module.exports = {
     demoStaff,
@@ -66,5 +123,11 @@ module.exports = {
     demoService1,
     demoService2,
     demoService3,
-    demoService4
+    demoService4,
+    demoDinnig,
+    demoCarrental,
+    demoLiveevent,
+    demoMeetingroom,
+    demoRoom,
+    rating
 }
