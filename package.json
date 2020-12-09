@@ -4,6 +4,7 @@
   "description": "Hotel service and guest managent application.",
   "main": "server.js",
   "scripts": {
+    "start": "env-cmd -f ./config/dev.env node server.js",
     "dev": "env-cmd -f ./config/dev.env nodemon server.js -e js,env,json",
     "test": "env-cmd -f ./config/dev.env jest --watch --runInBand"
   },
