@@ -22,6 +22,7 @@ app.use('/api/staff', staffRouter)
 app.use('/api/unbook', unbookingRouter)
 app.use('/api/rating', rating)
 app.use('/api/booked', booked)
+//error route hanler
 app.get('*', (req, res) => {
     log('404 page not found Invalid URL')
 })
